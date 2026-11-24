@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Онбординг новых сотрудников Вторалюминпродукта. Знакомство с компанией и чек-лист на первый месяц.">
+<title>Онбординг · Вторалюминпродукт</title>
+<style>
+:root {
+  color-scheme: dark;
+  --base: #0c102b;
+  --surface: #151a3a;
+  --line: #37447d;
+  --text: #f3f5ff;
+  --muted: #bdc8eb;
+  --accent: #9cbaff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font: 16px/1.6 system-ui, sans-serif; color: var(--text); background: var(--base); }
+a { color: var(--accent); text-underline-offset: .2em; }
+a:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #9ee9ff; outline-offset: 4px; }
+.wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+header { background: radial-gradient(ellipse at 73% 45%, #242a7a, transparent 65%), #111235; border-bottom: 1px solid var(--line); }
+nav { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding: 20px 0; border-bottom: 1px solid #5263a255; }
+nav strong { font-size: 1.05rem; }
+nav div, .links { display: flex; gap: 10px 20px; flex-wrap: wrap; }
+nav a { font-size: .9rem; text-decoration: none; color: var(--muted); }
+nav a:hover, footer a:hover { color: #fff; text-decoration: underline; }
+.hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: 36px; align-items: center; padding-block: clamp(32px, 6vw, 80px); }
+.hero p { color: var(--muted); max-width: 46ch; }
+.eyebrow { font-weight: 700; letter-spacing: .10em; text-transform: uppercase; font-size: .875rem; }
+h1 { font-size: clamp(2.3rem, 5vw, 4.35rem); line-height: 1.03; letter-spacing: -.05em; margin: 10px 0 18px; }
+h2 { font-size: clamp(1.65rem, 4vw, 2.4rem); line-height: 1.15; letter-spacing: -.025em; margin: 0 0 16px; }
+h3 { margin: 0 0 10px; }
+.hero .links { gap: 10px; margin-top: 24px; }
+.button { display: inline-block; background: #3857e5; color: #fff; font-weight: 700; padding: 10px 15px; border: 1px solid #758cff; border-radius: 8px; text-decoration: none; }
+.button:hover { background: #4564ef; }
+.button.secondary { background: #181e4a; border-color: #6678bb; }
+.button.secondary:hover { background: #273269; }
+.anniversary { position: relative; margin: 0; overflow: hidden; aspect-ratio: 1574 / 922; border-radius: 14px; box-shadow: 0 0 0 1px #8a9cff70, 0 18px 55px #07091c9e; }
+.anniversary img { position: absolute; width: 130.11%; max-width: none; height: auto; top: -16.81%; left: -13.85%; display: block; }
+section { padding: 35px 0; scroll-margin-top: 12px; }
+section + section { border-top: 1px solid #2a335d; }
+.panel, article, details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+.stats, .stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.stages article { border-top: 2px solid #7186fc; }
+.stats strong { display: block; font-size: 1.65rem; color: var(--accent); }
+.materials { display: grid; gap: 10px; }
+.materials img { width: 100%; height: auto; display: block; margin-top: 16px; border-radius: 6px; }
+summary { cursor: pointer; font-weight: 700; }
+.meter { margin: 14px 0 20px; }
+.meter p { margin: 0 0 8px; }
+progress { display: block; width: 100%; height: 12px; accent-color: #8799ff; }
+label { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); cursor: pointer; }
+label input { accent-color: #8799ff; width: 19px; height: 19px; flex: none; margin-top: 3px; }
+.note { color: var(--muted); }
+#structure ul { columns: 2; column-gap: 40px; padding-left: 20px; }
+#structure li { break-inside: avoid; margin-bottom: 6px; }
+footer { padding: 30px 0; background: #111435; border-top: 1px solid var(--line); }
+footer p { margin: 8px 0; }
+video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #090d24; border: 1px solid var(--line); border-radius: 12px; }
+@media (max-width: 800px) {
+  .hero, .stages { grid-template-columns: 1fr; }
+  .hero { gap: 28px; }
+}
+@media (max-width: 570px) {
+  .stats { grid-template-columns: 1fr; }
+  .wrap { width: calc(100% - 32px); }
+  #structure ul { columns: 1; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.activity-slide { position: relative; container-type: inline-size; }
+.activity-slide > img { border-radius: 0; }
+.activity-tile { position: absolute; inset: 74.45% .8% 0 76.34%; display: grid; grid-template-rows: 62.6% 1fr; background: #fff; }
+.materials .activity-tile img { width: 100%; height: 100%; object-fit: contain; margin: 0; border-radius: 0; background: #f8f8f8; }
+.activity-tile span { display: grid; place-content: center; background: linear-gradient(#0d2e59, #103e78); color: #fff; text-align: center; text-transform: uppercase; font-size: 1cqw; line-height: 1.2; }
+</style>
+</head>
+<body>
+<header>
+<nav class="wrap" aria-label="Разделы сайта"><strong>Вторалюминпродукт</strong><div><a href="#route">Маршрут</a><a href="#company">О компании</a><a href="#structure">Подчинённость</a><a href="#history-film">Видеоролик</a><a href="#materials">Презентация</a></div></nav>
+<div class="hero wrap">
+<div><p class="eyebrow">Онбординг сотрудников</p><h1>Добро пожаловать в команду!</h1><p>Познакомьтесь с предприятием и пройдите маршрут от первого рабочего дня до встречи с руководителем по итогам месяца.</p>
+<div class="links"><a class="button" href="#route">Открыть чек-лист</a><a class="button secondary" href="#history-film">Смотреть «30 лет истории»</a></div></div>
+<figure class="anniversary"><img src="anniversary.jpg" alt="Юбилейный баннер «Вторалюминпродукт — 30 лет», 1996–2026" width="2048" height="1262"></figure>
+</div>
+</header>
+<main class="wrap">
+<section id="route">
+<h2>Ваш первый месяц</h2>
+<p class="note">Отмечайте выполненные шаги. Отметки сохраняются в этом браузере.</p>
+<div class="panel meter"><p id="count" role="status">Выполнено 0 из 9 шагов</p><progress value="0" max="9" aria-labelledby="count"></progress></div>
+<div class="stages">
+<article><h3>Первый день</h3>
+<label><input id="meet" type="checkbox">Уточнить у HR или руководителя место и время встречи, порядок оформления и получения пропуска.</label>
+<label><input id="intro" type="checkbox">Посмотреть «30 лет истории» и изучить раздел «О компании».</label>
+<label><input id="briefing" type="checkbox">Уточнить обязательные инструктажи для своей роли и пройти их по указаниям ответственного.</label>
+</article>
+<article><h3>Первая неделя</h3>
+<label><input id="team" type="checkbox">Познакомиться с командой и узнать, к кому обращаться по рабочим вопросам.</label>
+<label><input id="access" type="checkbox">Уточнить рабочие инструменты и получить необходимые доступы.</label>
+<label><input id="task" type="checkbox">Согласовать с руководителем первую задачу и ожидаемый результат.</label>
+</article>
+<article><h3>Первый месяц</h3>
+<label><input id="results" type="checkbox">Подвести итоги первых задач и записать оставшиеся вопросы.</label>
+<label><input id="feedback" type="checkbox">Обсудить с руководителем результаты и получить обратную связь.</label>
+<label><input id="goals" type="checkbox">Согласовать дальнейшие цели, обучение и необходимую поддержку.</label>
+</article>
+</div>
+</section>
+<section id="company">
+<h2>О компании</h2>
+<p>«Вторалюминпродукт» работает с 1996 года. В 2018 году предприятие вошло в состав <a href="https://www.akron-holding.ru/">AKRON HOLDING</a>. Комплекс собирает, вывозит и перерабатывает металлолом и электронные отходы, утилизирует технику и оборудование. Задача предприятия — сохранять природные ресурсы, возвращая материалы во вторичный оборот.</p>
+<div class="stats">
+<div class="panel"><strong>Более 12 000 м²</strong>Площадь производства</div>
+<div class="panel"><strong>Более 650 000 т/год</strong>Производственная мощность</div>
+<div class="panel"><strong>До 98%</strong>Металлов возвращается во вторичный оборот</div>
+</div>
+</section>
+<section id="structure" aria-labelledby="structure-title">
+<h2 id="structure-title">Структура подчинённости</h2>
+<article>
+<h3>Генеральный директор</h3>
+<p>Напрямую подчиняются</p>
+<ul>
+<li>Главный бухгалтер</li>
+<li>Директор по персоналу</li>
+<li>Заместитель генерального директора по вопросам безопасности</li>
+<li>Заместитель генерального директора по вопросам самоходной техники</li>
+<li>Заместитель генерального директора по производственным вопросам</li>
+<li>Заместитель директора по коммерческим вопросам <span class="note">(3)</span></li>
+<li>Мастер участка</li>
+<li>Начальник лаборатории радиационного контроля</li>
+<li>Начальник ПЗУ</li>
+<li>Начальник производственного участка</li>
+<li>Начальник хозяйственного отдела</li>
+<li>Помощник руководителя</li>
+<li>Руководитель департамента по работе с ключевыми клиентами</li>
+<li>Руководитель отдела заготовки <span class="note">(2)</span></li>
+<li>Руководитель отдела маркетинга</li>
+<li>Руководитель отдела по охране труда</li>
+<li>Специалист отдела охраны труда и промышленной безопасности</li>
+<li>Финансовый директор</li>
+<li>Юрисконсульт</li>
+</ul>
+</article>
+</section>
+<section id="history-film" aria-labelledby="history-film-title">
+<h2 id="history-film-title">30 лет истории</h2>
+<video controls playsinline preload="none" poster="cover.webp" width="854" height="480" aria-labelledby="history-film-title">
+<source src="history.mp4" type="video/mp4">
+<a href="history.mp4">Скачать ролик «30 лет истории»</a>
+</video>
+</section>
+<section id="materials">
+<h2>Презентация о компании</h2>
+<div class="materials">
+<details><summary>История и миссия</summary><img loading="lazy" src="slide-3.webp" alt="Этапы развития предприятия с 1996 года и миссия компании"></details>
+<details><summary>Направления деятельности</summary><div class="activity-slide"><img loading="lazy" src="slide-4.webp" alt="Переработка лома, демонтаж, утилизация техники, лаборатория и другие направления"><div class="activity-tile"><img src="electrical.png" alt="" width="624" height="351"><span>Электротехническое направление<br>Трансформаторы</span></div></div></details>
+<details><summary>Производственные мощности</summary><img loading="lazy" src="slide-6.webp" alt="Площадь производства, годовая мощность, транспорт, оборудование и железнодорожная инфраструктура"></details>
+<details><summary>Обучение и инициативы сотрудников</summary><img loading="lazy" src="slide-28.webp" alt="Повышение квалификации, корпоративный спорт и благотворительные инициативы"></details>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><strong>Вторалюминпродукт</strong><p>Москва, район Некрасовка, 2-я Вольская ул., 34, корпус 2, строение 4</p><div class="links"><a href="https://icvap.ru/">Сайт компании</a><a href="https://vk.ru/icvap">Сообщество ВКонтакте</a><a href="https://vk.ru/wall-185251802_546">Ролик в посте ВКонтакте</a></div></div></footer>
+<script>
+const steps = [...document.querySelectorAll('#route input')];
+const status = document.querySelector('#count');
+const progress = document.querySelector('progress');
+const key = 'vap-onboarding-v1';
+let completed = [];
+try {
+  const saved = JSON.parse(localStorage.getItem(key));
+  if (Array.isArray(saved)) completed = saved;
+} catch {}
+function update() {
+  const selected = steps.filter(step => step.checked).map(step => step.id);
+  status.textContent = `Выполнено ${selected.length} из ${steps.length} шагов`;
+  progress.value = selected.length;
+  try { localStorage.setItem(key, JSON.stringify(selected)); } catch {}
+}
+for (const step of steps) {
+  step.checked = completed.includes(step.id);
+  step.addEventListener('change', update);
+}
+update();
+</script>
+</body>
+</html>
