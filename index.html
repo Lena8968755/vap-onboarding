@@ -75,11 +75,24 @@ video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 
 .materials .activity-tile img { width: 100%; height: 100%; object-fit: contain; margin: 0; border-radius: 0; background: #f8f8f8; }
 .activity-tile span { display: grid; place-content: center; background: linear-gradient(#0d2e59, #103e78); color: #fff; text-align: center; text-transform: uppercase; font-size: 1cqw; line-height: 1.2; }
 .departments-table {overflow-x:auto} .departments-table table {width:100%;border-collapse:collapse;text-align:left} .departments-table th,.departments-table td {padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+
+.learning-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:14px; margin-top:18px; }
+.learning-grid details {padding:10px 12px;}
+.adapt-template label {display:grid; gap:6px;}
+.adapt-template textarea {width:100%;font:inherit;color:inherit;background:var(--bg,#202745);border:1px solid var(--line,#53618e);border-radius:6px;padding:6px;resize:vertical;}
+#adaptation-forms button {cursor:pointer;font:inherit;}
+@media print {
+  header,footer,main>section:not(#adaptation-forms),#adaptation-forms>p,#adaptation-forms>button {display:none!important;}
+  body, #adaptation-forms article, #adaptation-forms textarea {background:white!important;color:black!important;}
+  .learning-grid {display:block;}
+  .adapt-template {break-inside:avoid; margin-bottom:14px;}
+  .adapt-template textarea {border:1px solid #999;resize:none;}
+}
 </style>
 </head>
 <body>
 <header>
-<nav class="wrap" aria-label="Разделы сайта"><strong>Вторалюминпродукт</strong><div><a href="#route">Маршрут</a><a href="#company">О компании</a><a href="#structure">Подчинённость</a><a href="#departments">Отделы</a><a href="#history-film">Видеоролик</a><a href="#materials">Презентация</a></div></nav>
+<nav class="wrap" aria-label="Разделы сайта"><strong>Вторалюминпродукт</strong><div><a href="#route">Маршрут</a><a href="#company">О компании</a><a href="#structure">Структура компании</a><a href="#training">Обучение</a><a href="#adaptation-forms">Формы</a><a href="#history-film">Видеоролик</a><a href="#materials">Презентация</a></div></nav>
 <div class="hero wrap">
 <div><p class="eyebrow">Онбординг сотрудников</p><h1>Добро пожаловать в команду!</h1><p>Познакомьтесь с предприятием и пройдите маршрут от первого рабочего дня до встречи с руководителем по итогам месяца.</p>
 <div class="links"><a class="button" href="#route">Открыть чек-лист</a><a class="button secondary" href="#history-film">Смотреть «30 лет истории»</a></div></div>
@@ -118,8 +131,7 @@ video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 
 <div class="panel"><strong>До 98%</strong>Металлов возвращается во вторичный оборот</div>
 </div>
 </section>
-<section id="structure" aria-labelledby="structure-title">
-<h2 id="structure-title">Структура подчинённости</h2>
+<section id="structure"><h2>Структура компании</h2><details><summary>Подчинённость и ответственные по отделам</summary><h3>Структура подчинённости</h3>
 <article>
 <h3>Генеральный директор</h3>
 <p>Напрямую подчиняются</p>
@@ -145,9 +157,7 @@ video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 
 <li>Юрисконсульт</li>
 </ul>
 </article>
-</section>
-<section id="departments" aria-labelledby="departments-title">
-<h2 id="departments-title">Отделы и ответственные</h2>
+<h3 id="departments-title">Отделы и ответственные</h3>
 <article>
 <div class="structure-table departments-table" role="region" aria-labelledby="departments-title" tabindex="0">
 <table>
@@ -160,7 +170,7 @@ video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 
 <tr><th scope="row">Коммерческое направление</th><td>Зайцев Алексей Валериевич, коммерческий директор</td></tr>
 <tr><th scope="row">Бухгалтерия</th><td>Лизачева, главный бухгалтер</td></tr>
 <tr><th scope="row">Отдел утилизации</th><td>Брахнов Игорь Вячеславович</td></tr>
-<tr><th scope="row">Отдел автотранспорта</th><td>Шпунтов</td></tr>
+<tr><th scope="row">Отдел автотранспорта</th><td>Шпунтов Александр Александрович</td></tr>
 <tr><th scope="row">Электротехническое направление</th><td>Куцый Сергей Владимирович</td></tr>
 <tr><th scope="row">Юридическое направление</th><td>Коростелёва Ирина, юрист</td></tr>
 <tr><th scope="row">Розничное направление</th><td>Халилов Владимир Александрович</td></tr>
@@ -172,7 +182,8 @@ video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 
 </table>
 </div>
 </article>
-</section>
+</details></section>
+<section id="training"><h2>Основные направления компании</h2><div class="learning-grid"><article><h3>Утилизация</h3><p>Утилизация возвращает материалы из отходов в оборот. На примере оргтехники компания организует приём, вывоз и обработку оборудования. При переработке выделяют металлы, пластик и другие материалы. По согласованной услуге оформляют закрывающие документы.</p><p><strong>Пример.</strong> Клиент списывает компьютеры. Уточните перечень, количество, место хранения, необходимость вывоза и комплект документов.</p><details><summary>Какие сведения нужны для первичной оценки заявки?</summary><p>Перечень техники, количество, адрес, условия погрузки и требования к документам.</p></details><p><a href="https://icvap.ru/deyatelnost/utilizatsiya/utilizacia-tehniki-i-elektroniki/utilizatsiya-org-tekhniki/">Подробнее о направлении</a></p></article><article><h3>РОП</h3><p>Расширенная ответственность производителей (РОП) касается обращения с отходами от использования товаров и упаковки. Компания оказывает услуги по утилизации в рамках РОП. Применимость требований и условия проекта уточняет профильный специалист.</p><p><strong>Пример.</strong> Производитель упаковки обращается за услугой по РОП. Запросите группу продукции или упаковки, отчётный период и объём.</p><details><summary>Что уточнить до передачи обращения специалисту по РОП?</summary><p>Группу продукции или упаковки, отчётный период и объём.</p></details><p><a href="https://icvap.ru/deyatelnost/utilizacziya-v-ramkah-rasshirennoj-otvetstvennosti-proizvoditelya/">Подробнее о направлении</a></p></article><article><h3>Демонтаж</h3><p>Демонтаж — разборка или снятие оборудования и конструкций. Компания также выполняет разделку и вывоз металлолома. Объём работ зависит от объекта, условий на площадке и согласованного задания.</p><p><strong>Пример.</strong> Клиент хочет разобрать металлоконструкцию. Запросите адрес, описание, фото и сведения о доступе для техники.</p><details><summary>Чем демонтаж отличается от вывоза?</summary><p>При демонтаже объект нужно разобрать. При вывозе готовый к погрузке материал нужно забрать и перевезти.</p></details><p><a href="https://icvap.ru/deyatelnost/demontazh-i-razdelka/">Подробнее о направлении</a></p></article><article><h3>Авторециклинг</h3><p>Авторециклинг — переработка транспорта, вышедшего из эксплуатации. Направление компании охватывает утилизацию транспорта и спецтехники. При разборке и сортировке из техники выделяют материалы для дальнейшей переработки.</p><p><strong>Пример.</strong> Клиент хочет сдать списанный погрузчик. Уточните вид техники, состояние, возможность перемещения, адрес и потребность в вывозе.</p><details><summary>Почему важно спросить, может ли техника двигаться?</summary><p>От этого зависит, как организовать погрузку и перевозку.</p></details><p><a href="https://icvap.ru/deyatelnost/utilizatsiya/utilizacziya-tehniki/">Подробнее о направлении</a></p></article><article><h3>ЭКОВАП и розница</h3><p>ЭКОВАП — розничное направление по приёму вторсырья от населения. Пункты «Мегабак» помогают жителям сдавать раздельно собранные материалы. Условия приёма зависят от конкретного пункта и вида материала.</p><p><strong>Пример.</strong> Посетитель хочет привезти пластик и старую технику. Уточните, какие именно материалы он сдаёт, и проверьте условия выбранного пункта.</p><details><summary>Что проверить перед тем, как направить человека в пункт?</summary><p>Адрес, режим работы, перечень материалов и условия приёма.</p></details><p><a href="https://ecovap.ru/">Подробнее о направлении</a></p></article></div></section><section id="adaptation-forms"><h2>Формы адаптации</h2><p>Заполните нужные поля и распечатайте формы или сохраните их в PDF через меню печати. Введённые данные остаются на открытой странице до её перезагрузки.</p><button class="button" type="button" onclick="window.print()">Распечатать формы</button><div class="learning-grid"><article class="adapt-template"><h3>Чек-лист первого дня</h3><label><span>Сотрудник и подразделение</span><textarea rows="2"></textarea></label><label><span>Дата выхода, руководитель и наставник</span><textarea rows="2"></textarea></label><label><span>Рабочее место и необходимые доступы</span><textarea rows="2"></textarea></label><label><span>Пройденные инструктажи и знакомство с командой</span><textarea rows="2"></textarea></label><label><span>Открытые вопросы, ответственный и срок</span><textarea rows="2"></textarea></label></article><article class="adapt-template"><h3>План адаптации на 30 дней</h3><label><span>Сотрудник, должность и наставник</span><textarea rows="2"></textarea></label><label><span>Цели на первую неделю и критерии выполнения</span><textarea rows="2"></textarea></label><label><span>Задачи на первый месяц и ожидаемый результат</span><textarea rows="2"></textarea></label><label><span>Необходимое обучение или поддержка</span><textarea rows="2"></textarea></label><label><span>Даты промежуточной и итоговой встреч</span><textarea rows="2"></textarea></label></article><article class="adapt-template"><h3>Встреча с наставником</h3><label><span>Дата и участники</span><textarea rows="2"></textarea></label><label><span>Что получилось</span><textarea rows="2"></textarea></label><label><span>Что мешает или требует уточнения</span><textarea rows="2"></textarea></label><label><span>Договорённость, ответственный и срок</span><textarea rows="2"></textarea></label><label><span>Дата следующей встречи</span><textarea rows="2"></textarea></label></article><article class="adapt-template"><h3>Итоги первого месяца</h3><label><span>Дата и участники</span><textarea rows="2"></textarea></label><label><span>Цели, результаты и примеры выполненных задач</span><textarea rows="2"></textarea></label><label><span>Обратная связь сотрудника и руководителя</span><textarea rows="2"></textarea></label><label><span>Что нужно доработать или изучить</span><textarea rows="2"></textarea></label><label><span>Следующие цели и дата сверки</span><textarea rows="2"></textarea></label></article></div></section>
 <section id="history-film" aria-labelledby="history-film-title">
 <h2 id="history-film-title">30 лет истории</h2>
 <video controls playsinline preload="none" poster="cover.webp" width="854" height="480" aria-labelledby="history-film-title">
