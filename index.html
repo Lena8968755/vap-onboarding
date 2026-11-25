@@ -74,11 +74,12 @@ video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 
 .activity-tile { position: absolute; inset: 74.45% .8% 0 76.34%; display: grid; grid-template-rows: 62.6% 1fr; background: #fff; }
 .materials .activity-tile img { width: 100%; height: 100%; object-fit: contain; margin: 0; border-radius: 0; background: #f8f8f8; }
 .activity-tile span { display: grid; place-content: center; background: linear-gradient(#0d2e59, #103e78); color: #fff; text-align: center; text-transform: uppercase; font-size: 1cqw; line-height: 1.2; }
+.departments-table {overflow-x:auto} .departments-table table {width:100%;border-collapse:collapse;text-align:left} .departments-table th,.departments-table td {padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
 </style>
 </head>
 <body>
 <header>
-<nav class="wrap" aria-label="Разделы сайта"><strong>Вторалюминпродукт</strong><div><a href="#route">Маршрут</a><a href="#company">О компании</a><a href="#structure">Подчинённость</a><a href="#history-film">Видеоролик</a><a href="#materials">Презентация</a></div></nav>
+<nav class="wrap" aria-label="Разделы сайта"><strong>Вторалюминпродукт</strong><div><a href="#route">Маршрут</a><a href="#company">О компании</a><a href="#structure">Подчинённость</a><a href="#departments">Отделы</a><a href="#history-film">Видеоролик</a><a href="#materials">Презентация</a></div></nav>
 <div class="hero wrap">
 <div><p class="eyebrow">Онбординг сотрудников</p><h1>Добро пожаловать в команду!</h1><p>Познакомьтесь с предприятием и пройдите маршрут от первого рабочего дня до встречи с руководителем по итогам месяца.</p>
 <div class="links"><a class="button" href="#route">Открыть чек-лист</a><a class="button secondary" href="#history-film">Смотреть «30 лет истории»</a></div></div>
@@ -143,6 +144,33 @@ video { display: block; width: min(100%, 854px); height: auto; aspect-ratio: 16 
 <li>Финансовый директор</li>
 <li>Юрисконсульт</li>
 </ul>
+</article>
+</section>
+<section id="departments" aria-labelledby="departments-title">
+<h2 id="departments-title">Отделы и ответственные</h2>
+<article>
+<div class="structure-table departments-table" role="region" aria-labelledby="departments-title" tabindex="0">
+<table>
+<thead><tr><th scope="col">Отдел или направление</th><th scope="col">Ответственный</th></tr></thead>
+<tbody>
+<tr><th scope="row">Финансово-экономический отдел (ФЭО)</th><td>Соколов Михаил Алексеевич, финансовый директор</td></tr>
+<tr><th scope="row">Отдел маркетинга</th><td>Михайлюк Елена Алексеевна</td></tr>
+<tr><th scope="row">Отдел лома чёрных металлов (ЛЧМ)</th><td>Позняк Павел Сергеевич</td></tr>
+<tr><th scope="row">Отдел лома цветных металлов (ЛЦМ)</th><td>Вешкин Сергей</td></tr>
+<tr><th scope="row">Коммерческое направление</th><td>Зайцев Алексей Валериевич, коммерческий директор</td></tr>
+<tr><th scope="row">Бухгалтерия</th><td>Лизачева, главный бухгалтер</td></tr>
+<tr><th scope="row">Отдел утилизации</th><td>Брахнов Игорь Вячеславович</td></tr>
+<tr><th scope="row">Отдел автотранспорта</th><td>Шпунтов</td></tr>
+<tr><th scope="row">Электротехническое направление</th><td>Куцый Сергей Владимирович</td></tr>
+<tr><th scope="row">Юридическое направление</th><td>Коростелёва Ирина, юрист</td></tr>
+<tr><th scope="row">Розничное направление</th><td>Халилов Владимир Александрович</td></tr>
+<tr><th scope="row">Направление «Газпром»</th><td>Гарманов Игорь Игоревич</td></tr>
+<tr><th scope="row">Лаборатория радиационного контроля (ЛРК)</th><td>Колесникова Юлия Геннадьевна</td></tr>
+<tr><th scope="row">Охрана труда</th><td>Карасева Анна Альбертовна</td></tr>
+<tr><th scope="row">Отдел персонала</th><td>Погожева Елена Евгеньевна</td></tr>
+</tbody>
+</table>
+</div>
 </article>
 </section>
 <section id="history-film" aria-labelledby="history-film-title">
